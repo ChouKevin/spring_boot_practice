@@ -1,0 +1,32 @@
+
+CREATE TABLE IF NOT EXISTS company (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name varchar(50) NOT NULL UNIQUE,
+    address varchar(50),
+    
+    created_by BIGINT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_by BIGINT NOT NULL,
+    updated_at TIMESTAMP NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+CREATE TABLE IF NOT EXISTS client (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    company_id BIGINT NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    phone VARCHAR(20),
+
+    created_by BIGINT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_by BIGINT NOT NULL,
+    updated_at TIMESTAMP NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+CREATE Table IF NOT EXISTS platform_user (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE,
+    pwd VARCHAR(255) NOT NULL,
+    permission INT NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
